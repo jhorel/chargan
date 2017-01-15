@@ -36,6 +36,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
@@ -50,7 +54,7 @@ import android.widget.TextView;
  * communicates with {@code BluetoothLeService}, which in turn interacts with the
  * Bluetooth LE API.
  */
-public class ControlActivity extends AppCompatActivity {
+public class ControlActivity extends AppCompatActivity implements SensorEventListener {
 
     // Objects to access the layout items for Tach, Buttons, and Seek bars
     private static TextView mTachLeftText;
@@ -59,12 +63,16 @@ public class ControlActivity extends AppCompatActivity {
     private static SeekBar mSpeedRightSeekBar;
     private static Switch mEnableLeftSwitch;
     private static Switch mEnableRightSwitch;
+    private static Switch mEnableBothSwitch;
 
     // This tag is used for debug messages
     private static final String TAG = ControlActivity.class.getSimpleName();
 
     private static String mDeviceAddress;
     private static PSoCBleRobotService mPSoCBleRobotService;
+
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
 
     /**
      * This manages the lifecycle of the BLE service.
@@ -95,11 +103,17 @@ public class ControlActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
 
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+
+
         // Assign the various layout objects to the appropriate variables
         mTachLeftText = (TextView) findViewById(R.id.tach_left);
         mTachRightText = (TextView) findViewById(R.id.tach_right);
         mEnableLeftSwitch = (Switch) findViewById(R.id.enable_left);
         mEnableRightSwitch = (Switch) findViewById(R.id.enable_right);
+        mEnableBothSwitch = (Switch) findViewById(R.id.enable_both);
         mSpeedLeftSeekBar = (SeekBar) findViewById(R.id.speed_left);
         mSpeedRightSeekBar = (SeekBar) findViewById(R.id.speed_right);
 
@@ -125,6 +139,13 @@ public class ControlActivity extends AppCompatActivity {
             }
         });
 
+        /* This will be called when the right motor enable switch is changed */
+        mEnableBothSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                enableMotorSwitch(isChecked, PSoCBleRobotService.Motor.RIGHT);
+                enableMotorSwitch(isChecked, PSoCBleRobotService.Motor.LEFT);
+            }
+        });
         /* This will be called when the left speed seekbar is moved */
         mSpeedLeftSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -257,5 +278,46 @@ public class ControlActivity extends AppCompatActivity {
         intentFilter.addAction(PSoCBleRobotService.ACTION_DISCONNECTED);
         intentFilter.addAction(PSoCBleRobotService.ACTION_DATA_AVAILABLE);
         return intentFilter;
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        Vector x  = new Vector (1.0,0.0,0.0);
+        Vector g  = new Vector (0.0,0.0,1.0);
+
+        synchronized (this) {
+            android.hardware.Sensor sensor = event.sensor;
+            {
+                boolean rvalue = false;
+                int j = (sensor.getType() == android.hardware.Sensor.TYPE_ACCELEROMETER) ? 1 : 0;
+                if (j == 1) {
+
+                    // since normal is landscape swap x an y
+                    Vector accel = new Vector(event.values[1], event.values[0], event.values[2]);
+                    double tilt = (45.0 - AccUtils.Angle(accel,g));
+                    double steer = (90.0 - AccUtils.Angle(accel,x));
+
+                    double fwdspeed = tilt ;
+                    int leftspeed = (int) (fwdspeed - steer/1.5);
+                    int rightspeed = (int) (fwdspeed + steer/1.5);
+                    Log.d("CHARGAN", String.format("Tilt %4.2f Steer %4.2f  %d %d ",tilt,steer,leftspeed,rightspeed));
+
+                    if (mPSoCBleRobotService != null) {
+
+                        mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.RIGHT, rightspeed);
+                        mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.LEFT, leftspeed);
+                    }
+
+                    }
+
+                }
+
+            }
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 }

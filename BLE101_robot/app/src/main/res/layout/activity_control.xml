@@ -94,5 +94,12 @@ http://www.cypress.com/products/bluetooth-low-energy-ble
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="16dp" />
+    <Switch
+        android:id="@+id/enable_both"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="32dp" />
 
 </RelativeLayout>

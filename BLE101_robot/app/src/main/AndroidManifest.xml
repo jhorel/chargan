@@ -39,6 +39,7 @@ http://www.cypress.com/products/bluetooth-low-energy-ble
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <!-- Location permission required for android 6.0 (Marshmallow) -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 
     <application
         android:allowBackup="true"
