@@ -70,17 +70,15 @@ public class PSoCBleRobotService extends Service {
     // UUID for the custom motor characteristics
     private static final String baseUUID =           "00000000-0000-1000-8000-00805f9b34f";
     private static final String motorServiceUUID =   baseUUID + "0";
-    private static final String speedLeftCharUUID =  baseUUID + "1";
-    private static final String speedRightCharUUID = baseUUID + "2";
-    private static final String tachLeftCharUUID =   baseUUID + "3";
-    private static final String tachRightCharUUID =  baseUUID + "4";
-    private static final String CCCD_UUID =          "00002902-0000-1000-8000-00805f9b34fb";
+    private static final String speedCharUUID =  baseUUID + "1";
+    private static final String tachCharUUID =   baseUUID + "3";
+    private static final String nameCharUUID =  "00000000-0000-1000-8000-00805F9B34FB";
+    private static final String CCCD_UUID = "00002902-0000-1000-8000-00805f9b34fb";
 
     // Bluetooth Characteristics that we need to read/write
-    private static BluetoothGattCharacteristic mSpeedLeftCharacteristic;
-    private static BluetoothGattCharacteristic mSpeedRightCharacteristic;
-    private static BluetoothGattCharacteristic mTachLeftCharacteristic;
-    private static BluetoothGattCharacteristic mTachRightCharacteristic;
+    private static BluetoothGattCharacteristic mSpeedCharacteristic;
+    private static BluetoothGattCharacteristic mTachCharacteristic;
+    private static BluetoothGattCharacteristic mNameCharacteristic;
 
     // State (on/off), speed of the motors, and tach values
     private static boolean motorLeftState;
@@ -89,6 +87,7 @@ public class PSoCBleRobotService extends Service {
     private static int motorRightSpeed;
     private static int motorLeftTach;
     private static int motorRightTach;
+    private static String name;
 
     // Actions used during broadcasts to the activity
     public static final String ACTION_CONNECTED =
@@ -162,14 +161,13 @@ public class PSoCBleRobotService extends Service {
                 // Get the characteristics for the motor service
                 BluetoothGattService gattService = mBluetoothGatt.getService(UUID.fromString(motorServiceUUID));
                 if (gattService == null) return; // return if the motor service is not supported
-                mSpeedLeftCharacteristic = gattService.getCharacteristic(UUID.fromString(speedLeftCharUUID));
-                mSpeedRightCharacteristic = gattService.getCharacteristic(UUID.fromString(speedRightCharUUID));
-                mTachLeftCharacteristic = gattService.getCharacteristic(UUID.fromString(tachLeftCharUUID));
-                mTachRightCharacteristic = gattService.getCharacteristic(UUID.fromString(tachRightCharUUID));
+                mSpeedCharacteristic = gattService.getCharacteristic(UUID.fromString(speedCharUUID));
+                 mTachCharacteristic = gattService.getCharacteristic(UUID.fromString(tachCharUUID));
+                mNameCharacteristic = gattService.getCharacteristic(UUID.fromString(nameCharUUID));
 
                 // Set the CCCD to notify us for the two tach readings
-                setCharacteristicNotification(mTachLeftCharacteristic, true);
-                setCharacteristicNotification(mTachRightCharacteristic, true);
+                setCharacteristicNotification(mTachCharacteristic, true);
+                setCharacteristicNotification(mNameCharacteristic, true);
 
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
@@ -240,12 +238,15 @@ public class PSoCBleRobotService extends Service {
 
             // Update the appropriate variable with the new value.
             switch (uuid) {
-                case tachLeftCharUUID:
+                case tachCharUUID:
                     motorLeftTach = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT32,0);
+                    motorRightTach = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT32,1);
                     break;
-                case tachRightCharUUID:
-                    motorRightTach = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT32,0);
+
+                case nameCharUUID:
+                    name = characteristic.getStringValue(0);
                     break;
+
             }
             // Tell the activity that new car data is available
             broadcastUpdate(ACTION_DATA_AVAILABLE);
@@ -356,35 +357,55 @@ public class PSoCBleRobotService extends Service {
         mBluetoothGatt = null;
     }
 
+    public static String ByteArraytoHex(byte[] bytes) {
+        if(bytes!=null){
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(String.format("%02X ", b));
+            }
+            return sb.toString();
+        }
+        return "";
+    }
+
     /**
      * Update the speed of the motor in the GATT database or turn off motor. the speed
      * value comes from the global variables motorLeftSpeed or motorRightSpeed which are
      * set by the setMotorSpeed function.
      *
-     * @param motor to write (L or R)
-     * @param state determines if motor is on or off
+      * @param state determines if motor is on or off
      */
-    private void updateGattSpeed(Motor motor, boolean state)
+    private void updateGattSpeed( boolean state)
     {
-        if(motor == Motor.LEFT) {
-            if (mSpeedLeftCharacteristic != null) {
+
+            if (mSpeedCharacteristic != null) {
                 if(state) {
-                    mSpeedLeftCharacteristic.setValue(motorLeftSpeed, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
+                    byte[] data = new byte[2];
+                    data[0] = (byte) motorLeftSpeed;
+                    data[1] = (byte) motorRightSpeed;
+                    mSpeedCharacteristic.setValue(data);
+                    Log.i(TAG,"speed = "+ByteArraytoHex(mSpeedCharacteristic.getValue()));
+
                 } else {
-                    mSpeedLeftCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
+                    mSpeedCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
+                    mSpeedCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+
                 }
-                writeCharacteristic(mSpeedLeftCharacteristic);
+                writeCharacteristic(mSpeedCharacteristic);
             }
-        } else { // Motor == RIGHT
-            if (mSpeedRightCharacteristic != null) {
-                if(state) {
-                    mSpeedRightCharacteristic.setValue(motorRightSpeed, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
-                } else {
-                    mSpeedRightCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
-                }
-                writeCharacteristic(mSpeedRightCharacteristic);
-            }
+
+    }
+
+    private void updateName(String name)
+
+    {
+
+        if (mNameCharacteristic != null) {
+            mNameCharacteristic.setValue(name.substring(0,29).getBytes());
+
+            writeCharacteristic(mNameCharacteristic);
         }
+
     }
 
     /**
@@ -454,7 +475,7 @@ public class PSoCBleRobotService extends Service {
             motorRightState = state;
         }
         // Update the Speed in the Gatt Database
-        updateGattSpeed(motor, state);
+        updateGattSpeed( state);
     }
 
     /**
@@ -477,7 +498,7 @@ public class PSoCBleRobotService extends Service {
             state = motorRightState;
         }
         // Update the Speed in the Gatt Database
-        updateGattSpeed(motor, state);
+        updateGattSpeed( state);
     }
 
     /**
