@@ -69,16 +69,13 @@ public class PSoCBleRobotService extends Service {
 
     // UUID for the custom motor characteristics
     private static final String baseUUID =           "00000000-0000-1000-8000-00805f9b34f";
-    private static final String motorServiceUUID =   baseUUID + "0";
-    private static final String speedCharUUID =  baseUUID + "1";
-    private static final String tachCharUUID =   baseUUID + "3";
-    private static final String nameCharUUID =  "00000000-0000-1000-8000-00805F9B34FB";
+    private static final String serviceUUID =  "00000000-0000-1000-8000-00805F9B34F0";
+
+    private static final String cmdCharUUID =  "00000000-0000-1000-8000-00805f9b34fb";
     private static final String CCCD_UUID = "00002902-0000-1000-8000-00805f9b34fb";
 
     // Bluetooth Characteristics that we need to read/write
-    private static BluetoothGattCharacteristic mSpeedCharacteristic;
-    private static BluetoothGattCharacteristic mTachCharacteristic;
-    private static BluetoothGattCharacteristic mNameCharacteristic;
+    private static BluetoothGattCharacteristic mCmdCharacteristic;
 
     // State (on/off), speed of the motors, and tach values
     private static boolean motorLeftState;
@@ -159,15 +156,12 @@ public class PSoCBleRobotService extends Service {
             if (status == BluetoothGatt.GATT_SUCCESS) {
 
                 // Get the characteristics for the motor service
-                BluetoothGattService gattService = mBluetoothGatt.getService(UUID.fromString(motorServiceUUID));
+                BluetoothGattService gattService = mBluetoothGatt.getService(UUID.fromString(serviceUUID));
                 if (gattService == null) return; // return if the motor service is not supported
-                mSpeedCharacteristic = gattService.getCharacteristic(UUID.fromString(speedCharUUID));
-                 mTachCharacteristic = gattService.getCharacteristic(UUID.fromString(tachCharUUID));
-                mNameCharacteristic = gattService.getCharacteristic(UUID.fromString(nameCharUUID));
+                mCmdCharacteristic = gattService.getCharacteristic(UUID.fromString(cmdCharUUID));
 
                 // Set the CCCD to notify us for the two tach readings
-                setCharacteristicNotification(mTachCharacteristic, true);
-                setCharacteristicNotification(mNameCharacteristic, true);
+                setCharacteristicNotification(mCmdCharacteristic, true);
 
             } else {
                 Log.w(TAG, "onServicesDiscovered received: " + status);
@@ -238,14 +232,10 @@ public class PSoCBleRobotService extends Service {
 
             // Update the appropriate variable with the new value.
             switch (uuid) {
-                case tachCharUUID:
-                    motorLeftTach = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT32,0);
-                    motorRightTach = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT32,1);
-                    break;
+                case cmdCharUUID:
+                    Log.i(TAG,"new value "+ByteArraytoHex(characteristic.getValue()));
+                break;
 
-                case nameCharUUID:
-                    name = characteristic.getStringValue(0);
-                    break;
 
             }
             // Tell the activity that new car data is available
@@ -378,35 +368,34 @@ public class PSoCBleRobotService extends Service {
     private void updateGattSpeed( boolean state)
     {
 
-            if (mSpeedCharacteristic != null) {
+            if (mCmdCharacteristic != null) {
                 if(state) {
-                    byte[] data = new byte[2];
-                    data[0] = (byte) motorLeftSpeed;
-                    data[1] = (byte) motorRightSpeed;
-                    mSpeedCharacteristic.setValue(data);
-                    Log.i(TAG,"speed = "+ByteArraytoHex(mSpeedCharacteristic.getValue()));
+                    byte[] data = new byte[4];
+                    data[0] = 0x44;
+                    data[1] = 0x1;
+                    data[2] = (byte) motorLeftSpeed;
+                    data[3] = (byte) motorRightSpeed;
+
+                    
+                    mCmdCharacteristic.setValue(data);
 
                 } else {
-                    mSpeedCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 0);
-                    mSpeedCharacteristic.setValue(0, BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+                    byte[] data = new byte[4];
+                    data[0] = 0x44;
+                    data[1] = 0x1;
+                    data[2] = (byte) 0;
+                    data[3] = (byte) 0;
+                    mCmdCharacteristic.setValue(data);
 
                 }
-                writeCharacteristic(mSpeedCharacteristic);
+                writeCharacteristic(mCmdCharacteristic);
+                Log.i(TAG, "speed = " + ByteArraytoHex(mCmdCharacteristic.getValue()));
+
             }
 
     }
 
-    private void updateName(String name)
 
-    {
-
-        if (mNameCharacteristic != null) {
-            mNameCharacteristic.setValue(name.substring(0,29).getBytes());
-
-            writeCharacteristic(mNameCharacteristic);
-        }
-
-    }
 
     /**
      * Request a write on a given {@code BluetoothGattCharacteristic}.
@@ -455,7 +444,7 @@ public class PSoCBleRobotService extends Service {
         // will handle it
         if (BleQueue.size() == 1) {
             mBluetoothGatt.writeDescriptor(descriptor);
-            Log.i(TAG, "Writing Notification");
+            Log.i(TAG, "enable Notification");
         }
     }
 
@@ -501,6 +490,12 @@ public class PSoCBleRobotService extends Service {
         updateGattSpeed( state);
     }
 
+    public void setMotorSpeed(int left, int right){
+        motorLeftSpeed = left;
+        motorRightSpeed = right;
+        updateGattSpeed(true);
+    }
+
     /**
      * Get the tach reading for one of the motors
      *
@@ -520,7 +515,7 @@ public class PSoCBleRobotService extends Service {
      *
      * @return the motor service UUID
      */
-    public static UUID getMotorServiceUUID() {
-        return UUID.fromString(PSoCBleRobotService.motorServiceUUID);
+    public static UUID getCmdServiceUUID() {
+        return UUID.fromString(PSoCBleRobotService.serviceUUID);
     }
 }

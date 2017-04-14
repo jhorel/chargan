@@ -300,13 +300,18 @@ public class ControlActivity extends AppCompatActivity implements SensorEventLis
                     double fwdspeed = tilt ;
                     int leftspeed = (int) (fwdspeed - steer/1.5);
                     int rightspeed = (int) (fwdspeed + steer/1.5);
-                    Log.d("CHARGAN", String.format("Tilt %4.2f Steer %4.2f  %d %d ",tilt,steer,leftspeed,rightspeed));
+                  //  Log.d("CHARGAN", String.format("Tilt %4.2f Steer %4.2f  %d %d ",tilt,steer,leftspeed,rightspeed));
 
                     if (mPSoCBleRobotService != null) {
-
-                        mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.RIGHT, rightspeed);
-                        mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.LEFT, leftspeed);
+                 //        mPSoCBleRobotService.setMotorSpeed(leftspeed,rightspeed);
                     }
+                    else {
+                        Log.e(TAG,"service is null");
+                    }
+
+                  //      mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.RIGHT, rightspeed);
+                  //      mPSoCBleRobotService.setMotorSpeed(PSoCBleRobotService.Motor.LEFT, leftspeed);
+                  //  }
 
                     }
 
