@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BLE101_robot</string>
+    <string name="app_name">Chargan</string>
     <string name="title_activity_control">ControlActivity</string>
 
     <string name="no_ble">BLE not supported</string>
