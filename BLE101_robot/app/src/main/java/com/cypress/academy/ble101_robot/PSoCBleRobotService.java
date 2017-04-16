@@ -376,7 +376,7 @@ public class PSoCBleRobotService extends Service {
                     data[2] = (byte) motorLeftSpeed;
                     data[3] = (byte) motorRightSpeed;
 
-                    
+
                     mCmdCharacteristic.setValue(data);
 
                 } else {
