@@ -1,0 +1,170 @@
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/CortexM0/ARM_GCC_493/Debug/main.o : C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_HAL_PVT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_STACK_PVT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_Stack.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGap.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGatt.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattClient.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattDb.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattServer.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackHostMain.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackL2cap.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_bless_isr.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_custom.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_eventHandler.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_gatt.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/Clock_1.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/Clock_2.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRLEFT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRLEFT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRRIGHT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRRIGHT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDLEFT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDLEFT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDRIGHT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDRIGHT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_BOOT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_I2C.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_I2C_PVT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_PINS.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_PVT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_SCBCLK.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_SCB_IRQ.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_scl.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_scl_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_sda.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_sda_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_BLU.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_BLU_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_GRN.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_GRN_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_RED.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_RED_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M1.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M1_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M2.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M2_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERLEFT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERLEFT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERRIGHT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERRIGHT_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/PWMLEFT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/PWMRIGHT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/QDLEFT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/QDRIGHT.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/button.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/button_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cmFunc.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cmInstr.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cydisabledsheets.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/project.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1a.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1a_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1b.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1b_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2a.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2a_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2b.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2b_aliases.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/swint.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/tachPwm.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/tachTimer.h C:/Users/jhorel/Desktop/chargan/chargan.cydsn/main.c 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_HAL_PVT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_STACK_PVT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_Stack.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGap.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGatt.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattClient.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattDb.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackGattServer.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackHostMain.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_StackL2cap.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_bless_isr.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_custom.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_eventHandler.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/BLE_gatt.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/Clock_1.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/Clock_2.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRLEFT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRLEFT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRRIGHT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/DIRRIGHT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDLEFT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDLEFT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDRIGHT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/GNDRIGHT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_BOOT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_I2C.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_I2C_PVT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_PINS.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_PVT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_SCBCLK.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_SCB_IRQ.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_scl.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_scl_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_sda.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/I2C_sda_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_BLU.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_BLU_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_GRN.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_GRN_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_RED.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/IND_RED_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M1.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M1_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M2.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/M2_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERLEFT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERLEFT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERRIGHT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/POWERRIGHT_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/PWMLEFT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/PWMRIGHT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/QDLEFT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/QDRIGHT.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/button.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/button_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cmFunc.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/core_cmInstr.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/project.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1a.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1a_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1b.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd1b_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2a.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2a_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2b.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/qd2b_aliases.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/swint.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/tachPwm.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/Generated_Source/PSoC4/tachTimer.h : 
+
+C:/Users/jhorel/Desktop/chargan/chargan.cydsn/main.c : 
+

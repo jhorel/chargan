@@ -1,0 +1,5 @@
+C:\Users\jhorel\Desktop\chargan\chargan.cydsn\chargan.cyprj|c67332e5-fcd0-4d28-bc0a-3f3bf2a8c5ed
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|42ac21a2-0cac-4a72-99a8-1dc3078caaf5
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|5196e98d-3da5-4673-b928-736aa4a05f38
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|176af2af-06f7-4bbb-aadf-099cbaa88cbb
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|f72aa643-4190-4401-96ce-368e3342d289
